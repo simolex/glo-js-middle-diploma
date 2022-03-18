@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_requestCall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/requestCall */ \"./modules/requestCall.js\");\n\r\n\r\n(0,_modules_requestCall__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_requestCall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/requestCall */ \"./modules/requestCall.js\");\n\r\n\r\n(0,_modules_requestCall__WEBPACK_IMPORTED_MODULE_0__.requestCall)();\r\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst requestCall = () => {\r\n  console.log(\"Звонок заказан\");\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (requestCall);\r\n\n\n//# sourceURL=webpack:///./modules/requestCall.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"requestCall\": () => (/* binding */ requestCall)\n/* harmony export */ });\nconst requestCall = () => {\r\n  const btnCallback = document.querySelector(`.button a[href=\"#callback\"]`);\r\n  const overlayModal = document.querySelector(\".overlay\");\r\n  const headerModal = document.querySelector(\".header-modal\");\r\n  const btnCloseModal = headerModal.querySelector(\".header-modal__close\");\r\n\r\n  const closeModal = () => {\r\n    headerModal.style.display = \"\";\r\n    overlayModal.style.display = \"\";\r\n  };\r\n\r\n  btnCallback.addEventListener(\"click\", (e) => {\r\n    headerModal.style.display = \"block\";\r\n    overlayModal.style.display = \"block\";\r\n    e.preventDefault();\r\n  });\r\n\r\n  document.addEventListener(\"click\", (e) => {\r\n    console.log(e.target);\r\n    if (e.target === overlayModal || e.target === btnCloseModal) {\r\n      closeModal();\r\n    }\r\n  });\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/requestCall.js?");
 
 /***/ })
 

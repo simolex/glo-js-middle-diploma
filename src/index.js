@@ -1,3 +1,3 @@
-import requestCall from "./modules/requestCall";
+import { requestCall } from "./modules/requestCall";
 
 requestCall();
