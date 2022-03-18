@@ -14,10 +14,9 @@
       /*!******************!*\
   !*** ./index.js ***!
   \******************/
-      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-        eval(
-          '__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_requestCall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/requestCall */ "./modules/requestCall.js");\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/timer */ "./modules/timer.js");\n\r\n\r\n\r\n(0,_modules_requestCall__WEBPACK_IMPORTED_MODULE_0__["default"])();\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_1__.timer)("23 march 2022", true);\r\n\n\n//# sourceURL=webpack:///./index.js?'
-        );
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_requestCall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/requestCall */ \"./modules/requestCall.js\");\n/* harmony import */ var _modules_upSmoothScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/upSmoothScroll */ \"./modules/upSmoothScroll.js\");\n\r\n\r\n\r\n(0,_modules_requestCall__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n\r\n(0,_modules_upSmoothScroll__WEBPACK_IMPORTED_MODULE_1__.upSmoothScroll)();\r\n\n\n//# sourceURL=webpack:///./index.js?");
 
         /***/
       },
@@ -43,8 +42,22 @@
           '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "timer": () => (/* binding */ timer)\n/* harmony export */ });\nconst timer = (deadLine, hasDays = false) => {\r\n  const timerDays = document.querySelector(".count_1 span");\r\n  const timerHours = document.querySelector(".count_2 span");\r\n  const timerMinutes = document.querySelector(".count_3 span");\r\n  const timerSeconds = document.querySelector(".count_4 span");\r\n  const dateStop = new Date(deadLine).getTime();\r\n  let timerHandle;\r\n\r\n  const leadingZero = (num) => (num < 10 ? "0" + num : "" + num);\r\n\r\n  const getTimeRemaining = () => {\r\n    const dateNow = new Date().getTime();\r\n    const timeRemaining = (dateStop - dateNow) / 1000;\r\n    const days = Math.floor(timeRemaining / 3600 / 24);\r\n    let hours = Math.floor(timeRemaining / 3600);\r\n    hours = hasDays ? hours % 24 : hours;\r\n    const minutes = Math.floor(timeRemaining / 60) % 60;\r\n    const seconds = Math.floor(timeRemaining) % 60;\r\n    return {\r\n      timeRemaining,\r\n      days: leadingZero(days),\r\n      hours: leadingZero(hours),\r\n      minutes: leadingZero(minutes),\r\n      seconds: leadingZero(seconds),\r\n    };\r\n  };\r\n\r\n  const updateClock = () => {\r\n    const getTime = getTimeRemaining();\r\n\r\n    if (getTime.timeRemaining <= 0) {\r\n      clearInterval(timerHandle);\r\n    } else {\r\n      timerDays.textContent = getTime.days;\r\n      timerHours.textContent = getTime.hours;\r\n      timerMinutes.textContent = getTime.minutes;\r\n      timerSeconds.textContent = getTime.seconds;\r\n    }\r\n  };\r\n\r\n  timerHandle = setInterval(updateClock, 1000);\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/timer.js?'
         );
 
+<<<<<<< HEAD
         /***/
       },
+=======
+/***/ }),
+
+/***/ "./modules/upSmoothScroll.js":
+/*!***********************************!*\
+  !*** ./modules/upSmoothScroll.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"upSmoothScroll\": () => (/* binding */ upSmoothScroll)\n/* harmony export */ });\nconst upSmoothScroll = () => {\r\n  const btnSmoothScroll = document.querySelector(\".smooth-scroll\");\r\n  const secondPage = document.getElementById(\"benefits\");\r\n\r\n  const toggleScrollButton = () => {\r\n    if (scrollY > secondPage.offsetTop) {\r\n      btnSmoothScroll.style.display = \"\";\r\n    } else {\r\n      btnSmoothScroll.style.display = \"none\";\r\n    }\r\n  };\r\n\r\n  btnSmoothScroll.addEventListener(\"click\", (e) => {\r\n    //console.log(document.getElementById(\"header\"));\r\n    //e.preventDefault();\r\n    document.getElementById(\"header\").scrollIntoView({\r\n      behavior: \"smooth\",\r\n      block: \"start\",\r\n    });\r\n  });\r\n\r\n  toggleScrollButton();\r\n  document.addEventListener(\"scroll\", () => toggleScrollButton());\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/upSmoothScroll.js?");
+
+/***/ })
+>>>>>>> smoothScroll
 
     /******/
   };
