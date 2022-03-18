@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_requestCall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/requestCall */ \"./modules/requestCall.js\");\n\r\n\r\n(0,_modules_requestCall__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_requestCall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/requestCall */ \"./modules/requestCall.js\");\n/* harmony import */ var _modules_upSmoothScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/upSmoothScroll */ \"./modules/upSmoothScroll.js\");\n\r\n\r\n\r\n(0,_modules_requestCall__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n\r\n(0,_modules_upSmoothScroll__WEBPACK_IMPORTED_MODULE_1__.upSmoothScroll)();\r\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -27,6 +27,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst requestCall = () => {\r\n  console.log(\"Звонок заказан\");\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (requestCall);\r\n\n\n//# sourceURL=webpack:///./modules/requestCall.js?");
+
+/***/ }),
+
+/***/ "./modules/upSmoothScroll.js":
+/*!***********************************!*\
+  !*** ./modules/upSmoothScroll.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"upSmoothScroll\": () => (/* binding */ upSmoothScroll)\n/* harmony export */ });\nconst upSmoothScroll = () => {\r\n  const btnSmoothScroll = document.querySelector(\".smooth-scroll\");\r\n  const secondPage = document.getElementById(\"benefits\");\r\n\r\n  const toggleScrollButton = () => {\r\n    if (scrollY > secondPage.offsetTop) {\r\n      btnSmoothScroll.style.display = \"\";\r\n    } else {\r\n      btnSmoothScroll.style.display = \"none\";\r\n    }\r\n  };\r\n\r\n  btnSmoothScroll.addEventListener(\"click\", (e) => {\r\n    //console.log(document.getElementById(\"header\"));\r\n    //e.preventDefault();\r\n    document.getElementById(\"header\").scrollIntoView({\r\n      behavior: \"smooth\",\r\n      block: \"start\",\r\n    });\r\n  });\r\n\r\n  toggleScrollButton();\r\n  document.addEventListener(\"scroll\", () => toggleScrollButton());\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/upSmoothScroll.js?");
 
 /***/ })
 
