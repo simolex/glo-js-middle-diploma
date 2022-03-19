@@ -4,7 +4,6 @@ export const certificate = () => {
   const documents = document.getElementById("documents");
   const documentOverlay = documents.querySelectorAll(".document-overlay");
   const overlay = document.querySelector(".overlay");
-  console.log(documents);
 
   documents.addEventListener("click", (e) => {
     e.preventDefault();
