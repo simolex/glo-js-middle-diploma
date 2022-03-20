@@ -1,4 +1,5 @@
-import Swiper, { Navigation, Lazy } from "swiper";
+import Swiper, { Navigation } from "swiper";
+import { closeOverlay } from "./modules/closeOverlay";
 import { requestCall } from "./modules/requestCall";
 import { timer } from "./modules/timer";
 import { upSmoothScroll } from "./modules/upSmoothScroll";
@@ -6,7 +7,9 @@ import { calculate } from "./modules/calculate";
 import { certificate } from "./modules/certificate";
 import { sliderService } from "./modules/sliderService";
 import { sliderBenefit } from "./modules/sliderBenefit";
+import { servicesModal } from "./modules/servicesModal";
 
+closeOverlay();
 requestCall();
 timer("23 march 2022", true);
 upSmoothScroll();
@@ -16,7 +19,7 @@ sliderService(
   new Swiper(".services-swiper", {
     // Optional parameters
     //direction: "vertical",
-    modules: [Navigation, Lazy],
+    modules: [Navigation],
     loop: true,
     slidesPerView: 1,
     // Navigation arrows
@@ -38,7 +41,7 @@ sliderBenefit(
   new Swiper(".benefits-wrap", {
     // Optional parameters
     //direction: "vertical",
-    modules: [Navigation, Lazy],
+    modules: [Navigation],
     loop: true,
     slidesPerView: 3,
     slidesPerGroup: 1,
@@ -57,3 +60,4 @@ sliderBenefit(
     },
   })
 );
+servicesModal();

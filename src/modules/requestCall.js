@@ -7,7 +7,6 @@ export const requestCall = () => {
   const closeModal = () => {
     headerModal.style.display = "";
     overlayModal.style.display = "";
-    overlayModal.innerHTML = "";
   };
 
   btnCallback.addEventListener("click", (e) => {
