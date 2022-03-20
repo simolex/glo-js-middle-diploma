@@ -2,7 +2,6 @@ export const reviewComments = () => {
   const reviewContainer = document.querySelector(".comments-container");
   let currentComment = 0;
   let lastAppendedComment = {};
-  console.dir(reviewContainer);
 
   const createComment = ({ nameWho, avatarPath, commentText, index }) => {
     const comment = document.createElement("div");
@@ -61,7 +60,6 @@ export const reviewComments = () => {
 
   fetch("comments.json")
     .then((resp) => {
-      console.log(resp);
       if (resp.ok) {
         return resp.json();
       } else {
