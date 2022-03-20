@@ -11,7 +11,6 @@ export const servicesModal = () => {
     serviceModal.style.display = "";
     overlayModal.style.display = "";
   };
-  console.log(serviceButtons);
 
   servicesSlider.addEventListener("click", (e) => {
     serviceButtons.forEach((button) => {

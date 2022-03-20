@@ -9,6 +9,7 @@ import { sliderService } from "./modules/sliderService";
 import { sliderBenefit } from "./modules/sliderBenefit";
 import { servicesModal } from "./modules/servicesModal";
 import { applyForm } from "./modules/applyForm";
+import { reviewComments } from "./modules/reviewComments";
 
 closeOverlay();
 requestCall();
@@ -174,3 +175,5 @@ const forms = {
   ],
 };
 applyForm(forms);
+
+reviewComments();

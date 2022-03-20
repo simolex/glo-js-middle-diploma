@@ -1,5 +1,4 @@
 export const closeOverlay = () => {
-  console.log("over");
   const overlayModal = document.querySelector(".overlay");
 
   const closeOL = () => {

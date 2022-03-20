@@ -687,7 +687,7 @@ p.services-image_mobile {
 .review-arrow:after {
   content: "";
   position: absolute;
-  top: 67px;
+  top: 35%;
   background-image: url("../images/review-arrows.png");
   background-repeat: no-repeat;
   width: 39px;
@@ -1712,4 +1712,3 @@ input.error {
     transform: scale(1);
   }
 }
-
