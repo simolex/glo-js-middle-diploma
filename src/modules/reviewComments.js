@@ -71,6 +71,9 @@ export const reviewComments = () => {
     .then((data) => {
       reviewContainer.innerHTML = "";
       for (let i = 0; i < 3; i++) {
+        if (i > 0) {
+          lastAppendedComment.classList.add("review-margin-bottom");
+        }
         lastAppendedComment = createItem(data);
       }
 
