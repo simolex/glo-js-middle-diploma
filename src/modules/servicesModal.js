@@ -1,3 +1,4 @@
+import { disableBodyScroll, enableBodyScroll } from "./helpers";
 export const servicesModal = () => {
   const servicesSlider = document.querySelector(".services-swiper");
   const serviceButtons = servicesSlider.querySelectorAll(".service-button");
@@ -17,6 +18,13 @@ export const servicesModal = () => {
       if (button === e.target.closest(".service-button")) {
         serviceModal.style.display = "block";
         overlayModal.style.display = "block";
+        disableBodyScroll(true);
+        window.glCloseModal = () => {
+          serviceModal.style.display = "";
+          overlayModal.style.display = "";
+          enableBodyScroll();
+          window.glCloseModal = () => {};
+        };
         e.preventDefault();
       }
     });

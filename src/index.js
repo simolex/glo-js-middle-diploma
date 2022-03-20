@@ -8,6 +8,7 @@ import { certificate } from "./modules/certificate";
 import { sliderService } from "./modules/sliderService";
 import { sliderBenefit } from "./modules/sliderBenefit";
 import { servicesModal } from "./modules/servicesModal";
+import { applyForm } from "./modules/applyForm";
 
 closeOverlay();
 requestCall();
@@ -61,3 +62,171 @@ sliderBenefit(
   })
 );
 servicesModal();
+
+const forms = {
+  constransTemplates: {
+    hasNotName: /[^а-яёa-z \-]/gi,
+    hasNotMessage: /[^а-яёА-ЯЁ \-\.\!\?\:\;\(\)0-9]/gi,
+    hasNotEmail: /[^\w\-\@\.\!\~\*\']/gi,
+    hasNotTelephone: /[^\d\(\)\-\+]/gi,
+  },
+  validateTest: {
+    lengthMin: function (value, length = 1) {
+      return {
+        result: value.length >= +length,
+        message: `Минимальное кол-во символов: ${length}`,
+      };
+    },
+    phoneMask: function (value) {
+      return {
+        result: /\+\d\(\d{3}\)\d{3}-\d{2}-\d{2}/gi.test(value),
+        message: "Шаблон для телефона +x(xxx)xxx-xx-xx",
+      };
+    },
+    email: function (value) {
+      return {
+        result:
+          /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi.test(
+            value
+          ),
+        message: "Необходим корректный адрес почты",
+      };
+    },
+  },
+  formList: [
+    {
+      formId: "callback-form",
+      formFields: [
+        {
+          fieldSelector: "input[name=fio]",
+          fieldConstrians: ["hasNotName"],
+          fieldValidate: [{ test: "lengthMin", args: [2] }],
+        },
+        {
+          fieldSelector: "input[name=phone]",
+          fieldConstrians: ["hasNotTelephone"],
+          fieldValidate: [{ test: "phoneMask", args: [] }],
+        },
+      ],
+      someElement: [
+        {
+          type: "input",
+          id: "calc-total",
+          noTheEmpty: "",
+        },
+      ],
+    },
+    {
+      formId: "application-form",
+      formFields: [
+        {
+          fieldSelector: "input[name=fio]",
+          fieldConstrians: ["hasNotName"],
+          fieldValidate: [{ test: "lengthMin", args: [2] }],
+        },
+        {
+          fieldSelector: "input[name=phone]",
+          fieldConstrians: ["hasNotTelephone"],
+          fieldValidate: [{ test: "phoneMask", args: [] }],
+        },
+      ],
+      someElement: [
+        {
+          type: "input",
+          id: "calc-total",
+          noTheEmpty: "",
+        },
+      ],
+    },
+    {
+      formId: "timer-form-1",
+      formFields: [
+        {
+          fieldSelector: "input[name=fio]",
+          fieldConstrians: ["hasNotName"],
+          fieldValidate: [{ test: "lengthMin", args: [2] }],
+        },
+        {
+          fieldSelector: "input[name=phone]",
+          fieldConstrians: ["hasNotTelephone"],
+          fieldValidate: [{ test: "phoneMask", args: [] }],
+        },
+      ],
+      someElement: [
+        {
+          type: "input",
+          id: "calc-total",
+          noTheEmpty: "",
+        },
+      ],
+    },
+    {
+      formId: "timer-form-2",
+      formFields: [
+        {
+          fieldSelector: "input[name=fio]",
+          fieldConstrians: ["hasNotName"],
+          fieldValidate: [{ test: "lengthMin", args: [2] }],
+        },
+        {
+          fieldSelector: "input[name=phone]",
+          fieldConstrians: ["hasNotTelephone"],
+          fieldValidate: [{ test: "phoneMask", args: [] }],
+        },
+      ],
+      someElement: [
+        {
+          type: "input",
+          id: "calc-total",
+          noTheEmpty: "",
+        },
+      ],
+    },
+    //  {
+    //    formId: "form2",
+    //    formFields: [
+    //      {
+    //        fieldSelector: "input[name=user_name]",
+    //        fieldConstrians: ["hasNotName"],
+    //        fieldValidate: [{ test: "lengthMin", args: [2] }],
+    //      },
+    //      {
+    //        fieldSelector: "input[name=user_message]",
+    //        fieldConstrians: ["hasNotMessage"],
+    //        fieldValidate: [{ test: "lengthMin", args: [2] }],
+    //      },
+    //      {
+    //        fieldSelector: "input[name=user_email]",
+    //        fieldConstrians: ["hasNotEmail"],
+    //        fieldValidate: [{ test: "email", args: [] }],
+    //      },
+    //      {
+    //        fieldSelector: "input[name=user_phone]",
+    //        fieldConstrians: ["hasNotTelephone"],
+    //        fieldValidate: [{ test: "phoneMask", args: [] }],
+    //      },
+    //    ],
+    //  },
+    //  {
+    //    formId: "form3",
+    //    formFields: [
+    //      {
+    //        fieldSelector: "input[name=user_name]",
+    //        fieldConstrians: ["hasNotName"],
+    //        fieldValidate: [{ test: "lengthMin", args: [2] }],
+    //      },
+    //      {
+    //        fieldSelector: "input[name=user_email]",
+    //        fieldConstrians: ["hasNotEmail"],
+    //        fieldValidate: [{ test: "email", args: [] }],
+    //      },
+    //      {
+    //        fieldSelector: "input[name=user_phone]",
+    //        fieldConstrians: ["hasNotTelephone"],
+    //        fieldValidate: [{ test: "phoneMask", args: [] }],
+    //      },
+    //    ],
+    //  },
+  ],
+};
+applyForm(forms);

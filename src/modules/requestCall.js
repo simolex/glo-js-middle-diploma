@@ -1,3 +1,4 @@
+import { disableBodyScroll, enableBodyScroll } from "./helpers";
 export const requestCall = () => {
   const btnCallback = document.querySelector(`.button a[href="#callback"]`);
   const overlayModal = document.querySelector(".overlay");
@@ -12,6 +13,13 @@ export const requestCall = () => {
   btnCallback.addEventListener("click", (e) => {
     headerModal.style.display = "block";
     overlayModal.style.display = "block";
+    disableBodyScroll(true);
+    window.glCloseModal = () => {
+      headerModal.style.display = "";
+      overlayModal.style.display = "";
+      enableBodyScroll();
+      window.glCloseModal = () => {};
+    };
     e.preventDefault();
   });
 
