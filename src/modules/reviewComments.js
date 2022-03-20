@@ -78,7 +78,7 @@ export const reviewComments = () => {
         reviewContainer.querySelectorAll(".comment-item")[0].remove();
         lastAppendedComment.classList.add("review-margin-bottom");
         lastAppendedComment = createItem(data);
-      }, 2000);
+      }, 20000);
     })
     .catch((e) => {
       console.log(e.message);
