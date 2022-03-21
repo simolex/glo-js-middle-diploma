@@ -1,5 +1,5 @@
 import Swiper, { Navigation } from "swiper";
-import { closeOverlay } from "./modules/closeOverlay";
+import { overlay } from "./modules/overlay";
 import { requestCall } from "./modules/requestCall";
 import { timer } from "./modules/timer";
 import { upSmoothScroll } from "./modules/upSmoothScroll";
@@ -11,7 +11,7 @@ import { servicesModal } from "./modules/servicesModal";
 import { applyForm } from "./modules/applyForm";
 import { reviewComments } from "./modules/reviewComments";
 
-closeOverlay();
+overlay();
 requestCall();
 timer("23 march 2022", true);
 upSmoothScroll();

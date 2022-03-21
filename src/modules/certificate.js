@@ -1,4 +1,4 @@
-import { animate } from "./helpers";
+import { animate, disableBodyScroll, enableBodyScroll } from "./helpers";
 
 export const certificate = () => {
   const documents = document.getElementById("documents");
@@ -16,14 +16,23 @@ export const certificate = () => {
       sertificateImage.classList.add("header-modal--opened");
       sertificateImage.src = sertificateDocument.getAttribute("href");
 
-      overlay.style.display = "block";
+      openOverlay();
+      disableBodyScroll(true);
+      window.glCloseModal = () => {
+        closeOverlay();
+        enableBodyScroll();
+        window.glCloseModal = () => {};
+      };
+
       overlay.append(sertificateImage);
 
       animate({
         duration: 400,
         timing: (timeFraction) => timeFraction,
         draw(progress) {
-          sertificateImage.style.height = `${startHeight + Math.round((finishHeight - startHeight) * progress)}%`;
+          sertificateImage.style.height = `${
+            startHeight + Math.round((finishHeight - startHeight) * progress)
+          }%`;
         },
       });
     }

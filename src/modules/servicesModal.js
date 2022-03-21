@@ -9,18 +9,18 @@ export const servicesModal = () => {
 
   const closeModal = () => {
     serviceModal.style.display = "";
-    overlayModal.style.display = "";
+    closeOverlay();
   };
 
   servicesSlider.addEventListener("click", (e) => {
     serviceButtons.forEach((button) => {
       if (button === e.target.closest(".service-button")) {
         serviceModal.style.display = "block";
-        overlayModal.style.display = "block";
+        openOverlay();
         disableBodyScroll(true);
         window.glCloseModal = () => {
           serviceModal.style.display = "";
-          overlayModal.style.display = "";
+          closeOverlay();
           enableBodyScroll();
           window.glCloseModal = () => {};
         };
@@ -30,7 +30,7 @@ export const servicesModal = () => {
   });
 
   document.addEventListener("click", (e) => {
-    if (e.target === overlayModal || e.target === btnCloseModal) {
+    if (e.target === btnCloseModal) {
       closeModal();
     }
   });

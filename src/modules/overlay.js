@@ -1,14 +1,19 @@
-export const closeOverlay = () => {
+export const overlay = () => {
   const overlayModal = document.querySelector(".overlay");
 
-  const closeOL = () => {
+  window.openOverlay = () => {
+    overlayModal.style.display = "block";
+  };
+
+  window.closeOverlay = () => {
     overlayModal.style.display = "";
     overlayModal.innerHTML = "";
   };
 
   document.addEventListener("click", (e) => {
     if (e.target === overlayModal) {
-      closeOL();
+      closeOverlay();
+      glCloseModal();
     }
   });
 };

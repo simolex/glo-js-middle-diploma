@@ -7,16 +7,16 @@ export const requestCall = () => {
 
   const closeModal = () => {
     headerModal.style.display = "";
-    overlayModal.style.display = "";
+    closeOverlay();
   };
 
   btnCallback.addEventListener("click", (e) => {
     headerModal.style.display = "block";
-    overlayModal.style.display = "block";
+    openOverlay();
     disableBodyScroll(true);
     window.glCloseModal = () => {
       headerModal.style.display = "";
-      overlayModal.style.display = "";
+      closeOverlay();
       enableBodyScroll();
       window.glCloseModal = () => {};
     };
@@ -24,7 +24,7 @@ export const requestCall = () => {
   });
 
   document.addEventListener("click", (e) => {
-    if (e.target === overlayModal || e.target === btnCloseModal) {
+    if (e.target === btnCloseModal) {
       closeModal();
     }
   });
