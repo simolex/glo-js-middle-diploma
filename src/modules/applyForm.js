@@ -209,8 +209,10 @@ export const applyForm = (forms) => {
           if (/phone/gi.test(fieldItem.fieldSelector)) {
             e.preventDefault();
             let value = e.target.value.replace(/\D/g, "");
+            value = value.slice(1);
             let i = 0;
             const numbers = value.padEnd(10, "_");
+            console.log(numbers);
 
             value = maskPhone.replace(/(_)/g, (str, $1, ind) => {
               return numbers[i++];

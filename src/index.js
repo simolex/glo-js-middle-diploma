@@ -30,6 +30,9 @@ sliderService(
       prevEl: ".services__arrow--left",
       disabledClass: "services__arrow--disabled",
     },
+    //edgeSwipeThreshold: 50,
+    passiveListeners: false,
+    threshold: 30,
     breakpoints: {
       1200: {
         slidesPerView: 2,
@@ -67,7 +70,7 @@ servicesModal();
 const forms = {
   constransTemplates: {
     hasNotName: /[^а-яёa-z \-]/gi,
-    hasNotTelephone: /[^\d\(\)\-\+]/gi,
+    hasNotTelephone: /[\D]/gi /*/[^\d\(\)\-\+]/gi*/,
   },
   validateTest: {
     lengthMin: function (value, length = 1) {
@@ -78,8 +81,8 @@ const forms = {
     },
     phoneMask: function (value) {
       return {
-        result: /\+\d\(\d{3}\)\d{3}-\d{2}-\d{2}/gi.test(value),
-        message: "Шаблон для телефона +x(xxx)xxx-xx-xx",
+        result: /\+7\(\d{3}\)\d{3}-\d{2}-\d{2}/gi.test(value),
+        message: "Шаблон для телефона +7(xxx)xxx-xx-xx",
       };
     },
   },

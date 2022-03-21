@@ -5,10 +5,10 @@ export const requestCall = () => {
   const headerModal = document.querySelector(".header-modal");
   const btnCloseModal = headerModal.querySelector(".header-modal__close");
 
-  const closeModal = () => {
-    headerModal.style.display = "";
-    closeOverlay();
-  };
+  // const closeModal = () => {
+  //   headerModal.style.display = "";
+  //   closeOverlay();
+  // };
 
   btnCallback.addEventListener("click", (e) => {
     headerModal.style.display = "block";
@@ -25,7 +25,7 @@ export const requestCall = () => {
 
   document.addEventListener("click", (e) => {
     if (e.target === btnCloseModal) {
-      closeModal();
+      glCloseModal();
     }
   });
 };

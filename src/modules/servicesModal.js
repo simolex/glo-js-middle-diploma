@@ -7,10 +7,10 @@ export const servicesModal = () => {
   const serviceModal = document.querySelector(".services-modal");
   const btnCloseModal = serviceModal.querySelector(".services-modal__close");
 
-  const closeModal = () => {
-    serviceModal.style.display = "";
-    closeOverlay();
-  };
+  // const closeModal = () => {
+  //   serviceModal.style.display = "";
+  //   closeOverlay();
+  // };
 
   servicesSlider.addEventListener("click", (e) => {
     serviceButtons.forEach((button) => {
@@ -25,13 +25,14 @@ export const servicesModal = () => {
           window.glCloseModal = () => {};
         };
         e.preventDefault();
+        e.stopPropagation();
       }
     });
   });
 
   document.addEventListener("click", (e) => {
     if (e.target === btnCloseModal) {
-      closeModal();
+      glCloseModal();
     }
   });
 };
