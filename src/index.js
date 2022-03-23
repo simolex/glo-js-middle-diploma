@@ -70,7 +70,7 @@ servicesModal();
 const forms = {
   constransTemplates: {
     hasNotName: /[^а-яёa-z \-]/gi,
-    hasNotTelephone: /[\D]/gi /*/[^\d\(\)\-\+]/gi*/,
+    hasNotTelephone: /[^\d\(\)\-\+]/gi,
   },
   validateTest: {
     lengthMin: function (value, length = 1) {

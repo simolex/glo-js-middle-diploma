@@ -4,6 +4,10 @@ export const certificate = () => {
   const documents = document.getElementById("documents");
   const documentOverlay = documents.querySelectorAll(".document-overlay");
   const overlay = document.querySelector(".overlay");
+  const button = document.createElement("span");
+  button.classList.add("header-modal__close");
+  button.textContent = "x";
+  button.title = "Close";
 
   documents.addEventListener("click", (e) => {
     e.preventDefault();
@@ -25,6 +29,7 @@ export const certificate = () => {
       };
 
       overlay.append(sertificateImage);
+      overlay.append(button);
 
       animate({
         duration: 400,
@@ -59,4 +64,9 @@ export const certificate = () => {
     },
     true
   );
+  document.addEventListener("click", (e) => {
+    if (e.target === button) {
+      glCloseModal();
+    }
+  });
 };
