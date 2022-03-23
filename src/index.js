@@ -13,7 +13,7 @@ import { reviewComments } from "./modules/reviewComments";
 
 overlay();
 requestCall();
-timer("23 march 2022", true);
+timer("25 march 2022", true);
 upSmoothScroll();
 calculate();
 certificate();
